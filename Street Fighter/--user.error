@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "c:\Users\Jay\.vscode\extensions\ms-python.python-2021.12.1559732655\pythonFiles\shell_exec.py", line 26, in <module>
+    subprocess.check_call(shell_args, stdout=sys.stdout, stderr=sys.stderr)
+  File "C:\Python39\lib\subprocess.py", line 373, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['C:/Python39/python.exe', '-m', 'pip', 'install', '-U', 'ipykernel', 'C:/Users/Jay/AppData/Local/Temp/tmp-14488Xm7Oq5u84I6l.log']' returned non-zero exit status 1.
