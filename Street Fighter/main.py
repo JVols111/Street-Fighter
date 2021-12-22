@@ -53,6 +53,12 @@ defeat_img = pygame.image.load('img/Icons/defeat.png').convert_alpha()
 #restart image
 restart_img = pygame.image.load('img/Icons/restart.png').convert_alpha()
 
+#title img
+title1_img = pygame.image.load('img/Background/streetfighter.png').convert_alpha()
+title2_img = pygame.image.load('img/Background/streetfighter1.png').convert_alpha()
+
+
+
 #drawing text
 def draw_text(text, font, text_col, x, y):
         img = font.render(text, True, text_col)
@@ -62,6 +68,15 @@ def draw_text(text, font, text_col, x, y):
 #function for drawing bg
 def draw_bg():
     screen.blit(background_img, (0,0))
+
+
+#draw title image and blink
+def draw_title():
+    screen.blit(title1_img, (0,0))
+
+def draw_title2():
+    screen.blit(title2_img, (0,0))
+
 
 #func for draw panel
 def draw_panel():
@@ -238,6 +253,24 @@ bandit2_health_bar = HealthBar(550, screen_height-bottom_panel+100, bandit2.hp, 
 potion_button = button.Button(screen, 100, screen_height-bottom_panel+70, potion_img, 64, 64)
 restart_button = button.Button(screen, 330, 120, restart_img, 120, 30)
 
+enter_pressed = False
+time_to_blit = 1000
+while(enter_pressed == False):
+    clock.tick(120)
+    if(pygame.time.get_ticks() % 2000 < 500):
+        draw_title2()
+    if(pygame.time.get_ticks() % 2000 >= 500):
+        draw_title()
+        
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RETURN:
+                enter_pressed = True
+
+    pygame.display.update()        
 
 
 run = True
